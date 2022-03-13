@@ -73,16 +73,6 @@
     align-items: center;
     margin-top: 72px;
   }
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
@@ -116,10 +106,13 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    alt="Logo"
-    src="assets/logo.svg"
-  />
+  <a routerLink="/">
+    <img
+      alt="Logo"
+      src="assets/logo.svg"
+      
+    />
+  </a>
     <div class="spacer"></div>
     
 </div>
