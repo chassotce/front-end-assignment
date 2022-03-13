@@ -3,6 +3,124 @@ body{
     background-color: #F8F6F1;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+a,
+  a:visited,
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: black;
+  }
+
+  input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    &[type="text"]{
+        width: 100%;
+    }
+  }
+
+  .radio-item{
+      display: inline-flex;
+      margin-right: 10px;
+
+      label{
+          padding-left: 10px;
+      }
+    input[type=radio] {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: white;
+        margin: 0;
+    
+        font: inherit;
+        color: black;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 50%;
+    
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    input[type=radio]::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em black;
+        background-color: black;
+    }
+    
+    input[type=radio]:checked::before {
+        transform: scale(1);
+    }
+}
+
+.invalid-input{
+    color: #FF6348;
+
+    ~ .radio-item{
+        input[type=radio] {
+            border-color: #FF6348;
+        }
+    }
+}
+  
+.error-message{
+    background-color: #FF6348;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: left;
+    margin: 20px;
+    height: fit-content;
+
+    @media only screen and (min-width: 601px) {
+        position: absolute;
+        bottom: 60px;
+        right: 40px;
+    }
+    @media only screen and (max-width: 600px) {
+
+    }
+
+}
+
+
+.spacer {
+    flex: 1;
+  }
+  
 footer{
     position: absolute;
     height: 100px;

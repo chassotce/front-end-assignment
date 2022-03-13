@@ -1,0 +1,40 @@
+<div class="content">
+    <h1 i18n>Personal details</h1>
+    <form [formGroup]="form" (submit)="save(form)">
+        <section>
+            <label [ngClass]="{'invalid-input': formSubmitted && genderCtrl.invalid}" class="up"i18n>Gender</label>
+            <div class="radio-item" *ngFor="let gender of gendersEnum | keyvalue: originalOrder">
+                    <input type="radio" [value]="gender.value" formControlName="gender">
+                    <label for="{{gender.value}}" i18n>{{gender.key}}</label>
+            </div>
+        </section>
+        <section>
+            <label [ngClass]="{'invalid-input': formSubmitted && firstNameCtrl.invalid}" class="up" for="firstName" i18n>First name</label>
+            <input  type="text" i18n-placeholder placeholder="First name (as shown in passport / ID)"
+                [formControl]="firstNameCtrl">
+        </section>
+        <section>
+            <label [ngClass]="{'invalid-input': formSubmitted && lastNameCtrl.invalid}"  class="up" for="lastName" i18n>Last name</label>
+            <input type="text" i18n-placeholder placeholder="Last name (as shown in passport / ID)"
+                [formControl]="lastNameCtrl">
+        </section>
+        <section>
+            <label i18n  class="up" [ngClass]="{'invalid-input': formSubmitted && birthDateCtrl?.invalid}">Date of birth</label>
+            <div class="grid-3" [formGroup]="birthDateCtrl">
+                <input id="day" type="number" placeholder="Day" i18n-placeholder formControlName="day">
+                <input id="month" type="number" placeholder="Month" i18n-placeholder formControlName="month">
+                <input id="year" type="number" placeholder="Year" i18n-placeholder formControlName="year">
+            </div>
+        </section>
+        <section>
+            <label [ngClass]="{'invalid-input': formSubmitted && nationalityCtrl.invalid}" class="up" for="nationality" i18n>Nationality</label>
+            <input type="text" placeholder="Nationality" i18n-placeholder [formControl]="nationalityCtrl">
+        </section>
+
+        <button class="dark full" type="submit" mat-button i18n>Continue</button>
+    </form>
+</div>
+
+<div *ngIf="formSubmitted && form.invalid" class="error-message">
+    <p i18n>Some fields are missing</p>
+</div>
